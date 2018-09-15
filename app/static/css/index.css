@@ -1,0 +1,8 @@
+.jumbotron{
+    background-image: url("/static/photos/indexpic.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 450px;
+ 
+ }

@@ -1,25 +1,7 @@
-<html>
-    <head>
-      {% if title %}
-      <title>{{ title }} - pitch_one</title>
-      {% else %}
-      <title>Welcome to one minute pitch</title>
-      {% endif %}
-    </head>
-    <body>
-        <div>pitch_one: <a href="{{ url_for('index') }}">Home</a>
-                        <a href="{{ url_for('login') }}">Login</a>
-        </div>
-        <br>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-        {% block content %}{% endblock %}
-    </body>
-</html>
+{% extends 'bootstrap/base.html'%}
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock %}
+{% block styles%}
+ {{ super() }}
+{% endblock %}
