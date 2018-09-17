@@ -7,23 +7,13 @@
       
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home</a></li>
-        <!-- <li><a href="#">Pickup Lines</a></li>
-        <li><a href="#">Interview Pitch</a></li>
-        <li><a href="#">Product Pitch</a></li>
-        <li><a href="#">Promotion Pitch</a></li> -->
+        
       </ul>
 
 
       <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
-          <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Category
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Pickup Lines</a></li>
-            <li><a class="dropdown-item" href="#">Technology Pitch</a></li>
-            <a class="dropdown-item" href="#">Enterprenuership Pitch</a>
-          </div> -->
+         
         <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
         <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
         {% else %}
