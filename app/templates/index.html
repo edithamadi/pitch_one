@@ -1,26 +1,33 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
+{% import 'macros.html' as macro%}
 {% block styles%}
 {{ super() }}
-<link rel="stylesheet" type="text" href="{{url_for('static',filename='css/index.css')}}">
 
+<link rel="stylesheet" type="text" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
 {% block content %}
 <body>
 
 <div class="container">
         <div class="row">
-          <div class="jumbotron">
-            <br><br><br><br> <br><br><br><br><br><br> <br><br><br><br><br><br> <br><br><br><br><br><br> <br><br>
+          
+                    <h2><a href="{{url_for('main.new_pitch')}}" style="color:aliceblue;">
+                    <p class="title">Create your Pitch</p>
+                  </a></h2>
 
-                  <h2>Select a Category to make your pitch</h2>
-                  
-                    <center><p><h3><a class="dropdown-item" href="/pitch/new">Pickup Lines</a></h3></p></center>
-                    <center><p><h3><a class="dropdown-item" href="#">Technology</a></h3></p></center>
-                    <center><p><h3><a class="dropdown-item" href="#">Business </a></h3></p></center>
-          </div>
+                   
+         
         </div>
 </div>
         
 </body>
+<style>
+  body{
+    background-image: url("/static/photos/pitch.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+  }
+</style>
 {% endblock %}

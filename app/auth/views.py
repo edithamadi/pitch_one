@@ -4,6 +4,7 @@ from ..models import User
 from .forms import RegistrationForm, LoginForm
 from .. import db
 from flask_login import login_user, login_required, logout_user
+from ..email import mail_message
 
 #....
 @auth.route('/login',methods=['GET','POST'])
@@ -17,11 +18,8 @@ def login():
 
         flash('Invalid username or Password')
 
-    title = "Pitchs Login"
+    title = "Pitch Login"
     return render_template('auth/login.html',login_form = login_form,title=title)
-
-
-
 
 @auth.route('/register',methods = ["GET","POST"])
 def register():
@@ -30,8 +28,9 @@ def register():
         user = User(email = form.email.data, username = form.username.data,password = form.password.data)
         db.session.add(user)
         db.session.commit()
+        # mail_message("Welcome, ","email/welcome_user",user.email,user=user)
         return redirect(url_for('auth.login'))
-        title = "New Account"
+        title = "Registration"
     return render_template('auth/register.html',registration_form = form)
 
 

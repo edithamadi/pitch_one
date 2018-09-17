@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<body>
+    <div class="container">
+
+          
+    
+            <div class="col-sm-12 col-md-6 col-lg-6 ">
+                    {{ wtf.quick_form(form) }}            
+            </div>
+            
+            <div class="col-sm-12 col-md-6 col-lg-6 ">  
+                {{format_comment|safe}}
+            </div>
+
+    </div>
+</body>
+<style>
+  body{
+    background-image: url("/static/photos/pitch.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+  }
+</style>
+{% endblock%}

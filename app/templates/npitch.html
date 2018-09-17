@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content%}
+<div class="container">
+        <div class="well">
+                <p class="new">WRITE YOUR PITCH</p>
+                <br>
+                <div class="form">
+                    {{wtf.quick_form(new_pitch_form)}}
+                </div>
+        
+        </div>
+</div>

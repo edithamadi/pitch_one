@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'macros.html' as macro%}
+
+{% block content %}
+<body>
+
+<div class="container">
+        <div class="row">
+          <div class="jumbotron">
+            <br><br><br><br> <br><br><br><br><br><br> <br><br><br><br><br><br> <br><br><br><br><br><br><br><br>
+
+                  <h2><a href="{{url_for('main.new_pitch')}}">
+                    <p class="title">Create your Pitch</p>
+                  </a></h2>
+
+                    <center><div class="pitches">
+                      <p class="pitches2">{{macro.displayPitches(Pitch)}}</p>
+                    </div></center>
+          </div>
+        </div>
+</div>
+        
+</body>
+<!-- <style>
+  body{
+    background: url(/static/photos/pitch.jpg)
+  }
+</style> -->
+{% endblock %}

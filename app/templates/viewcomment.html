@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="container">
+      <p class="others">OTHER FEEDBACK:</p>
+      <ol>
+      {% for item in comments %}
+      <li>
+          <p class="comment"><b>{{item.data}}</b></p>
+      </li>
+  {% endfor %}
+  </div>
+  {% endblock%}
+  

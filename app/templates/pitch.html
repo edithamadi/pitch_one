@@ -1,8 +1,37 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock %}
 {%block content%}
-{%for pitch in pitches%}
+<body>
+{{wtf.quick_form(form)}}
+{%for pitches in pitch%}
 <div class="container">
-<p>{{pitches.category}}</p>
-<p>{{pitches.content}}</p>
+
+        <div class="pitches" style="color: aliceblue">
+               
+                <a href="{{url_for('main.new_comment',id=pitches.id)}}" style="color: aliceblue" >GIVE FEEDBACK:</a>&nbsp;&nbsp;|
+                <a href="{{url_for('main.view_comments',id=pitches.id)}}"  style="color: aliceblue">OTHER FEEDBACK</a>&nbsp;&nbsp;|
+               
+                <p>{{pitches.category}}</p>
+                <p>{{pitches.pitch_content}}</p>
+                
+               
+            </div>
+       
+      </div>
+  
 </div>
 {%endfor%}
+</body>
+<style>
+  body{
+    background-image: url("/static/photos/pitch.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+  }
+</style>
 {%endblock%}

@@ -61,24 +61,6 @@ def business():
 
 #end of categories section
 
-# @main.route('/pitch/new/', methods = ['GET','POST'])
-# @login_required
-# def new_pitcJh():
-
-#     form = PitchForm()
-#     if category is None:
-#         abort( 404 )
-
-#     if form.validate_on_submit():
-#         pitch= form.content.data, form.category_id.data
-#         new_pitch= Pitch(pitch= pitch)
-    
-
-#         new_pitch.save_pitch()
-#         return redirect(url_for('main.index'))
-
-#     return render_template('npitch.html', npitch_form= form, category= category)
-
 
 @main.route('/category/<int:id>')
 def category(id):

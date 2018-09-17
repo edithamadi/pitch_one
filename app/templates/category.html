@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% import 'macro.html' as macro %}
+
+{% block content %}
+
+<div>
+    <h2>{{category.name|upper}}</h2>
+</div>
+
+{% for pitch in pitches %}
+<h3>{{pitch.id}}</h3>
