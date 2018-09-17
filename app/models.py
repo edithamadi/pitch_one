@@ -63,9 +63,18 @@ class Comment(db.Model):
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     data = db.Column(db.String(255))
+    
 
     def __repr__(self):
         return f'Comment {self.data}'
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(self, id):
+        comment = Comment.query.filter_by(pitch_id=id).all()
+        return comment
 
 class Upvote(db.Model):
     __tablename__ = 'upvotes'
