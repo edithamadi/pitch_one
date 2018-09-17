@@ -25,5 +25,4 @@ def make_shell_context():
     return dict(app = app,db = db,User = User,Pitch = Pitch,Comment = Comment,Upvote = Upvote,Downvote = Downvote)
 
 if __name__ == '__main__':
-    app.secret_key = 'JASMINE5e'
     manager.run()
