@@ -32,8 +32,6 @@ def new_pitch():
     pitches=Pitch.query.all()
     return render_template('pitch.html',form=form, pitch=pitches)
 
-,1,00
-
 
 @main.route('/category/<int:id>')
 def category(id):
