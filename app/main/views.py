@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for,abort,flash
 from . import main
 from flask_login import login_required,current_user
-from ..models import User,Pitch,Comment,Upvote,Downvote
+from ..models import User,Pitch,Comment
 from .forms import UpdateProfile,PitchForm,CommentForm
 from .. import db,photos
 # import markdown2
@@ -32,34 +32,7 @@ def new_pitch():
     pitches=Pitch.query.all()
     return render_template('pitch.html',form=form, pitch=pitches)
 
-#categories
-
-@main.route('/pickuplines/pitch')
-def pick_up():
-    pitch = Pitch.get_all_pitches()
-    title = 'PICKUP LINES'
-    return render_template('pickuplines.html',title = title,pitch = pitch)
-
-@main.route('/promotion/pitch')
-def promotion():
-    pitch = Pitch.get_all_pitches()
-    title = 'PROMOTION PITCH'
-    return render_template('promotion.html',title = title,pitch = pitch)
-
-@main.route('/technology/pitch')
-def technology():
-    pitch = Pitch.get_all_pitches()
-    title = 'TECHNOLOGY PITCH'
-    return render_template('technology.html',title = title,pitch = pitch)
-
-
-@main.route('/business/pitch')
-def business():
-    pitch = Pitch.get_all_pitches()
-    title = 'BUSINESS PITCH'
-    return render_template('business.html',title = title,pitch = pitch)
-
-#end of categories section
+,1,00
 
 
 @main.route('/category/<int:id>')

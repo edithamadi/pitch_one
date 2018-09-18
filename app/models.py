@@ -7,7 +7,6 @@ from . import login_manager
 def load_user(user_id):
   return User.query.get(int(user_id))
 
-
 class User(UserMixin,db.Model): # we pass in db.model to allow 
                                 # connect our class and database to allow communication 
     __tablename__ = 'users'
@@ -22,8 +21,7 @@ class User(UserMixin,db.Model): # we pass in db.model to allow
 
     pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
     comments = db.relationship('Comment', backref = 'user', lazy = 'dynamic')
-    upvotes = db.relationship('Upvote', backref = 'user', lazy = 'dynamic')
-    downvotes = db.relationship('Downvote', backref = 'user', lazy = 'dynamic')
+    
 
     @property
     def password(self):
@@ -49,8 +47,6 @@ class Pitch(db.Model):
     pitch_content = db.Column(db.String(255))
     
     comments = db.relationship('Comment', backref = 'pitch', lazy = 'dynamic')
-    upvotes = db.relationship('Upvote', backref = 'pitch', lazy = 'dynamic')
-    downvotes = db.relationship('Downvote', backref = 'pitch', lazy = 'dynamic')
 
     def __repr__(self):
         return f'Pitch {self.pitch_content}'
@@ -75,26 +71,3 @@ class Comment(db.Model):
     def get_comments(self, id):
         comment = Comment.query.filter_by(pitch_id=id).all()
         return comment
-
-class Upvote(db.Model):
-    __tablename__ = 'upvotes'
-
-    id = db.Column(db.Integer,primary_key = True)
-    pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    upvote = db.Column(db.Integer,default=1)
-
-    def __repr__(self):
-        return f'Upvote {self.upvote}'
-
-
-class Downvote(db.Model):
-    __tablename__ = 'downvotes'
-
-    id = db.Column(db.Integer,primary_key = True)
-    pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    downvote = db.Column(db.Integer,default=1)
-
-    def __repr__(self):
-        return f'Downvote {self.downvote}'
